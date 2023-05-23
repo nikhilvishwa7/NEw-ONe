@@ -1173,7 +1173,7 @@ InlineKeyboardButton("💠ʜᴏᴡ ᴛᴏ ᴠᴇʀɪғʏ💠",url="https://t.me/
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
-            text=script.SOURCE_TXT,
+            text=script.EARN_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
