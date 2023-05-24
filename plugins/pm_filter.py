@@ -229,7 +229,7 @@ async def next_page(bot, query):
                 ],
             )
     btn.insert(0, [
-        InlineKeyboardButton("! Sᴇɴᴅ Aʟʟ Tᴏ PM !", callback_data=f"send_fall#files#{offset}#{req}"),
+        InlineKeyboardButton(f'! Sᴇɴᴅ Aʟʟ Tᴏ PM !', 'aadiisend'),
         InlineKeyboardButton("! Lᴀɴɢᴜᴀɢᴇs !", callback_data=f"select_lang#{req}")
     ])
     btn.insert(0, [
@@ -341,7 +341,7 @@ async def language_check(bot, query):
             )
         
         btn.insert(0, [
-            InlineKeyboardButton("! Sᴇɴᴅ Aʟʟ Tᴏ PM !", callback_data=f"send_fall#{pre}#{0}#{userid}"),
+            InlineKeyboardButton(f'! Sᴇɴᴅ Aʟʟ Tᴏ PM !', 'aadisend'),
             InlineKeyboardButton("! Lᴀɴɢᴜᴀɢᴇs !", callback_data=f"select_lang#{userid}")
         ])
 
@@ -1111,6 +1111,13 @@ InlineKeyboardButton("💠ʜᴏᴡ ᴛᴏ ᴠᴇʀɪғʏ💠",url="https://t.me/
 
     elif query.data == "sinfo":
         await query.answer(text=script.SINFO, show_alert=True)
+ 
+    elif query.data == "aadisend":
+        await query.answer("ᴡᴇ ᴀʀᴇ ɢᴏɪɴɢ ᴛᴏ ᴀᴅᴅ ᴛʜɪꜱ ғᴇᴀᴛᴜʀᴇ ꜱᴏᴏɴ ᴋᴇᴇᴘ ᴜꜱɪɴɢ  ᴜꜱ ᴀɴᴅ ʜᴀᴘᴘʏ ᴇᴀʀɴɪɴɢ", show_alert=True)
+
+
+
+
 
     elif query.data == "start":
         buttons = [[
@@ -1612,7 +1619,7 @@ async def auto_filter(client, msg, spoll=False):
         )
 
     btn.insert(0, [
-        InlineKeyboardButton("! Sᴇɴᴅ Aʟʟ Tᴏ PM !", callback_data=f"send_fall#{pre}#{0}#{message.from_user.id}"),
+        InlineKeyboardButton(f'! Sᴇɴᴅ Aʟʟ Tᴏ PM !', 'aadisend'),
         InlineKeyboardButton("! Lᴀɴɢᴜᴀɢᴇs !", callback_data=f"select_lang#{message.from_user.id}")
     ])
 
