@@ -1714,11 +1714,11 @@ async def advantage_spell_chok(msg):
     btn = [[
             InlineKeyboardButton(
             text="ꜱᴇᴀʀᴄʜ ᴏɴ ɢᴏᴏɢʟᴇ",
-            url=f"https://google.com/search?q={search}"
+            url=f"https://google.com/search?q="
         )
     ]]
     spell_check_del = await msg.reply_sticker(
-        (sticker=random.choice(STICKERS),
+        sticker=random.choice(STICKERS),
         reply_markup=InlineKeyboardMarkup(btn)
     )
     await asyncio.sleep(30)
