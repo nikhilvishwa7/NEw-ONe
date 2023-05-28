@@ -12,7 +12,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, SPELL_IMG, MAX_B_TN, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, IS_VERIFY
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, IS_VERIFY, STICKERS
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -1709,19 +1709,21 @@ async def auto_filter(client, msg, spoll=False):
             await message.delete()
     if spoll:
         await msg.message.delete()
+        
 async def advantage_spell_chok(msg):
-    mv_rqst = msg.text
-    search = msg.text.replace(" ", "+")
     btn = [[
             InlineKeyboardButton(
             text="ꜱᴇᴀʀᴄʜ ᴏɴ ɢᴏᴏɢʟᴇ",
-            url=f"https://google.com/search?q="
+            url=f"https://google.com/search?q={search}"
         )
     ]]
-        reply_markup = InlineKeyboardMarkup(btn)
-        aadi = await message.reply_sticker(sticker="CAACAgUAAxkBAAEJIiRkc2XhdpteF8zp5CzFk_zwrPcv6wAC0QoAApxroFf7FCaa6gnqqy8E", reply_markup=reply_markup)
-        await asyncio.sleep(30)
-        await aadi.delete()
+    spell_check_del = await msg.reply_sticker(
+        (sticker=random.choice(STICKERS),
+        reply_markup=InlineKeyboardMarkup(btn)
+    )
+    await asyncio.sleep(30)
+    await spell_check_del.delete()
+    return
 
 async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
