@@ -147,7 +147,7 @@ async def restart_bots():
             ai = Client(
                 f"{bot_token}", API_ID, API_HASH,
                 bot_token=bot_token,
-                plugins={"root": "clone_plugins"},
+                plugins={"root": "plugins"},
             )
             await ai.start()
             logging.info(f"Bot @{ai.username} restarted.")
