@@ -898,4 +898,4 @@ async def save_tutorial(client, message):
         return
 
     await save_group_settings(grp_id, 'tutorial', tutorial)
-    await message.reply_text(f"<b>Sᴜᴄᴄᴇꜱꜱғᴜʟʟʏ Aᴅᴅᴇᴅ Tᴜᴛᴏʀɪᴀʟ Fᴏʀ <code>{title}</code> .\n\n{tutorial}</b>",
+    await message.reply_text(f"<b>Sᴜᴄᴄᴇꜱꜱғᴜʟʟʏ Aᴅᴅᴇᴅ Tᴜᴛᴏʀɪᴀʟ Fᴏʀ <code>{title}</code> .\n\n{tutorial}</b>")
