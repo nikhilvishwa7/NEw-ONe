@@ -1594,7 +1594,6 @@ async def auto_filter(client, msg, spoll=False):
         InlineKeyboardButton("! Lᴀɴɢᴜᴀɢᴇs !", callback_data=f"select_lang#{message.from_user.id}")
     ])
 
-    ])
     tutorial = settings['tutorial']
     btn.insert(0, [
              InlineKeyboardButton("ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ", url=tutorial)]
