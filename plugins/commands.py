@@ -854,3 +854,48 @@ async def shortlink(bot, message):
     await save_group_settings(grpid, 'shortlink_api', api)
     await save_group_settings(grpid, 'is_shortlink', True)
     await reply.edit_text(f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ ᴀᴅᴅᴇᴅ sʜᴏʀᴛʟɪɴᴋ API ғᴏʀ {title}.\n\nCᴜʀʀᴇɴᴛ Sʜᴏʀᴛʟɪɴᴋ Wᴇʙsɪᴛᴇ: <code>{shortlink_url}</code>\nCᴜʀʀᴇɴᴛ API: <code>{api}</code></b>")
+
+@Client.on_message(filters.command('set_tutorial'))
+async def save_tutorial(client, message):
+    userid = message.from_user.id if message.from_user else None
+    if not userid:
+        return await message.reply(f"<b>Yᴏᴜ Aʀᴇ Aɴᴏɴʏᴍᴏᴜs Aᴅᴍɪɴ. Uꜱᴇ <code>/connect {message.chat.id}</code> Iɴ Bᴏᴛ Pᴍ.</b>")
+    chat_type = message.chat.type
+
+    if chat_type == enums.ChatType.PRIVATE:
+        grpid = await active_connection(str(userid))
+        if grpid is not None:
+            grp_id = grpid
+            try:
+                chat = await client.get_chat(grpid)
+                title = chat.title
+            except:
+                await message.reply_text("<b>Mᴀᴋᴇ Sᴜʀᴇ I'ᴍ Pʀᴇꜱᴇɴᴛ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ.</b>", quote=True)
+                return
+        else:
+            await message.reply_text("<b>I'ᴍ Nᴏᴛ Cᴏɴɴᴇᴄᴛᴇᴅ Tᴏ Aɴʏ Gʀᴏᴜᴘꜱ.</b>", quote=True)
+            return
+
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        grp_id = message.chat.id
+        title = message.chat.title
+
+    else:
+        return
+
+    st = await client.get_chat_member(grp_id, userid)
+    if (
+            st.status != enums.ChatMemberStatus.ADMINISTRATOR
+            and st.status != enums.ChatMemberStatus.OWNER
+            and str(userid) not in ADMINS
+    ):
+        return
+
+    try:
+        tutorial = re.findall("(?P<url>https://t.me?://[^\s]+)", message.text)[0]
+    except:
+        await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...\n\nFᴏʀᴍᴀᴛ : <code>/set_tutorial your link</code></b>")
+        return
+
+    await save_group_settings(grp_id, 'tutorial', tutorial)
+    await message.reply_text(f"<b>Sᴜᴄᴄᴇꜱꜱғᴜʟʟʏ Aᴅᴅᴇᴅ Tᴜᴛᴏʀɪᴀʟ Fᴏʀ <code>{title}</code> .\n\n{tutorial}</b>",
