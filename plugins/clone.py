@@ -36,7 +36,7 @@ async def on_clone(self, message):
                 ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
                     bot_token=bot_token,
-                    plugins={"root": "clone_plugins"},
+                    plugins={"root": "plugins"},
                 )
                 await ai.start()
                 bot = await ai.get_me()
