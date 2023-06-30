@@ -232,9 +232,10 @@ async def next_page(bot, query):
         InlineKeyboardButton(f'! Sᴇɴᴅ Aʟʟ Tᴏ PM !', 'aadiisend'),
         InlineKeyboardButton("! Lᴀɴɢᴜᴀɢᴇs !", callback_data=f"select_lang#{req}")
     ])
+    tutorial = settings['tutorial']
     btn.insert(0, [
-        InlineKeyboardButton("« ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ »", url=f"https://t.me/aboutme_tonystark/17")
-    ])
+             InlineKeyboardButton("ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ", url=tutorial)]
+        )       
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
@@ -1593,9 +1594,11 @@ async def auto_filter(client, msg, spoll=False):
         InlineKeyboardButton("! Lᴀɴɢᴜᴀɢᴇs !", callback_data=f"select_lang#{message.from_user.id}")
     ])
 
-    btn.insert(0, [
-        InlineKeyboardButton("« ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ »", url=f"https://t.me/aboutme_tonystark/17")
     ])
+    tutorial = settings['tutorial']
+    btn.insert(0, [
+             InlineKeyboardButton("ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ", url=tutorial)]
+        )       
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
