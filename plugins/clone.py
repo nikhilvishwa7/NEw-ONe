@@ -36,7 +36,7 @@ async def on_clone(self, message):
                 ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
                     bot_token=bot_token,
-                    plugins={"root": "plugins"},
+                    plugins={"root": "clone_plugins"},
                 )
                 await ai.start()
                 bot = await ai.get_me()
@@ -147,7 +147,7 @@ async def restart_bots():
             ai = Client(
                 f"{bot_token}", API_ID, API_HASH,
                 bot_token=bot_token,
-                plugins={"root": "plugins"},
+                plugins={"root": "clone_plugins"},
             )
             await ai.start()
             logging.info(f"Bot @{ai.username} restarted.")
