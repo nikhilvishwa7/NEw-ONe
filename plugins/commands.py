@@ -892,7 +892,7 @@ async def save_tutorial(client, message):
         return
 
     try:
-        tutorial = re.findall("(?P<url>https://t.me?://[^\s]+)", message.text)[0]
+        tutorial = re.findall("(?P<url>https?://[^\s]+)", message.text)[0]
     except:
         await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...\n\nFᴏʀᴍᴀᴛ : <code>/set_tutorial your link</code></b>")
         return
