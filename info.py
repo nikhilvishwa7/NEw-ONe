@@ -51,6 +51,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', "")
 
 # Others
+TUTORIAL = environ.get("TUTORIAL", "https://t.me/movies_junctionsdownload/9")
 IS_VERIFY = bool(environ.get('IS_VERIFY', False))
 VERIFY2_URL = environ.get('VERIFY2_URL', 'Tnshort.net')
 VERIFY2_API = environ.get('VERIFY2_API', "37f6443b39b5f26c4315a2fe250a1faf75caf3b7")
