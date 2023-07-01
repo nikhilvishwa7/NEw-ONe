@@ -673,7 +673,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                               InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
                               InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                            ],[
-                              InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/Mr_official_300")
+                              InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/Vis10n7")
                              ]
                             ]
                         )
@@ -1139,7 +1139,7 @@ InlineKeyboardButton("💠ʜᴏᴡ ᴛᴏ ᴠᴇʀɪғʏ💠",url="https://t.me/
         )
     elif query.data == "aadiearn":
         buttons = [[
-            InlineKeyboardButton('ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ', url='t.me/Mr_Official_300')
+            InlineKeyboardButton('ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ', url='t.me/Vis10n7')
         ],[
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏꜱᴇ ↻', callback_data='close_data')
@@ -1387,7 +1387,7 @@ InlineKeyboardButton("💠ʜᴏᴡ ᴛᴏ ᴠᴇʀɪғʏ💠",url="https://t.me/
     elif query.data == "owner_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="t.me/Mr_official_300")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="t.me/Vis10n7")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
